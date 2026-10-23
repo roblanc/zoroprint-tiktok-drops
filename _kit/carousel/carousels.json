@@ -1,0 +1,799 @@
+[
+ {
+  "id": "03-ink-limit-cracking",
+  "series": "CRACKING TRANSFERS",
+  "guide": "https://zoroprint.com/guides/dtf-transfer-cracking-ink-limit",
+  "slides": [
+   {
+    "type": "cover",
+    "kicker": "DTF TROUBLESHOOTING",
+    "title": "Why your DTF transfers *crack* or feel thick",
+    "sub": "Too much ink in one spot. Three RIP settings decide how much lands there."
+   },
+   {
+    "type": "stat",
+    "kicker": "THE CAUSE",
+    "big": "400%",
+    "label": "Ink one dark pixel can get with no limit",
+    "note": "Plus 100% white underneath. Five layers of wet ink that never fully dry before the powder."
+   },
+   {
+    "type": "stat",
+    "kicker": "FIX 1: TOTAL INK LIMIT",
+    "big": "250–280%",
+    "label": "The total ink limit range on DTF film",
+    "note": "The limit caps the sum of C + M + Y + K on one spot. The printer will not stop by itself. The RIP must."
+   },
+   {
+    "type": "list",
+    "title": "Fix 2: black generation (GCR)",
+    "items": [
+     {
+      "t": "What it does",
+      "d": "Swaps the gray part of a color (equal C, M and Y) for black ink."
+     },
+     {
+      "t": "Why it helps",
+      "d": "Less total ink for the same color, sharper dark detail, a thinner film."
+     },
+     {
+      "t": "Where to start",
+      "d": "60% is a safe default. Use 80% for designs with heavy dark shading."
+     }
+    ]
+   },
+   {
+    "type": "list",
+    "title": "Fix 3: per-channel limits",
+    "items": [
+     {
+      "t": "Start at C 80 · M 80 · Y 70 · K 70",
+      "d": "Past this point more drops only make the ink wetter, not darker."
+     },
+     {
+      "t": "A solid looks puddled?",
+      "d": "Lower that one channel by 10%."
+     }
+    ]
+   },
+   {
+    "type": "list",
+    "title": "Read the *symptom*",
+    "items": [
+     {
+      "t": "Cracks along dark areas",
+      "d": "Total ink limit too high. Drop it to 250%."
+     },
+     {
+      "t": "Feels like a rubber patch",
+      "d": "Ink limit and white both too high. Try 260% and 80% white."
+     },
+     {
+      "t": "Darks glossy, smear on film",
+      "d": "Per-channel limits too high. Lower them by 10%."
+     },
+     {
+      "t": "Darks flat and grayish",
+      "d": "GCR too high. Bring it down to 40–50%."
+     }
+    ]
+   },
+   {
+    "type": "tip",
+    "kicker": "IN ZOROPRINT",
+    "title": "Change one setting, print the same swatch",
+    "body": "Total ink limit and Black generation (GCR) are sliders in the RIP. Job history keeps every print with its settings, so you can go back to the one that worked."
+   },
+   {
+    "type": "cta",
+    "big": "Thinner film. *No cracks.*",
+    "line": "Total ink limit, GCR and per-channel limits in one RIP."
+   }
+  ],
+  "caption": "Your DTF transfer cracks after ten washes? That is too much ink in one spot.\n\nWith no limit, one dark pixel can get 400% ink plus a full white base. Cap it with a total ink limit of 250–280%, set black generation (GCR) to 60–80%, and trim per-channel limits if solids puddle. Change one setting at a time.\n\nFull guide → zoroprint.com/guides/dtf-transfer-cracking-ink-limit\n\n#dtf #dtfprinting #dtftransfers #dtfprinter #printshop",
+  "tiktok_title": "Why DTF transfers crack (and the 3 settings that fix it)",
+  "sources": [
+   "guides-more.ts:257 intro — 'printer will happily put 400 % ink on a pixel unless the RIP stops it'",
+   "guides-more.ts:261 TIL block — dark brown = C+M+Y+K, up to 400 % + 100 % white, 'five layers of wet ink'; 250–280 % on DTF film",
+   "guides-more.ts:263 GCR block — swaps equal C/M/Y for black; less ink, sharper darks, thinner film; 60 % default, 80 % heavy shading",
+   "guides-more.ts:265 per-channel block — C 80 M 80 Y 70 K 70; more drops only wetter; puddled → lower channel 10 %",
+   "guides-more.ts:267 Symptoms → settings (250 %, 260 % + 80 % white, −10 %, GCR 40–50 %)",
+   "guides-more.ts:268 tip — change one setting at a time; job history keeps each print with its settings",
+   "apps/desktop/src/renderer/index.html:325-326 — UI labels 'Black generation (GCR)', 'Total ink limit' (range sliders)"
+  ]
+ },
+ {
+  "id": "04-banding-lines",
+  "series": "BANDING LINES",
+  "guide": "https://zoroprint.com/guides/dtf-banding-lines-fix",
+  "slides": [
+   {
+    "type": "cover",
+    "kicker": "DTF TROUBLESHOOTING",
+    "title": "Lines in your DTF prints? *6 causes*, in order",
+    "sub": "Check them in the wrong order and you waste film. This order finds it fastest."
+   },
+   {
+    "type": "stat",
+    "kicker": "CHECK THIS FIRST",
+    "big": "70%",
+    "label": "of banding is clogged nozzles",
+    "note": "Print a nozzle check on a strip of film. Any gap is a missing nozzle and a light line on every pass."
+   },
+   {
+    "type": "list",
+    "title": "Causes 1–3: the head",
+    "items": [
+     {
+      "t": "1. Clogged nozzles",
+      "d": "One or two cleanings usually fix it. White nozzles need the most care."
+     },
+     {
+      "t": "2. Bidirectional timing",
+      "d": "Alternating lines? Turn bidirectional off. If they vanish, set head gap 1–3."
+     },
+     {
+      "t": "3. Too few passes",
+      "d": "At 720 × 720 each nozzle's error shows. More passes hide it."
+     }
+    ]
+   },
+   {
+    "type": "list",
+    "title": "Causes 4–6: feed, ink, file",
+    "items": [
+     {
+      "t": "4. Media feed",
+      "d": "Even lines one head pass wide: the film advanced too much or too little."
+     },
+     {
+      "t": "5. Ink starvation",
+      "d": "Lines get worse late in a long print: low tanks, air in a tube, old dampers."
+     },
+     {
+      "t": "6. The file",
+      "d": "View the file at 200%. If the bands are in the file, the printer is innocent."
+     }
+    ]
+   },
+   {
+    "type": "compare",
+    "title": "Resolution vs banding",
+    "left": {
+     "label": "720 × 720",
+     "items": [
+      "Fewer passes per row",
+      "Each nozzle's error is visible"
+     ]
+    },
+    "right": {
+     "label": "1440 × 720 Med",
+     "items": [
+      "The sweet spot for DTF",
+      "High (1440 × 1440) hides more, slower"
+     ]
+    }
+   },
+   {
+    "type": "tip",
+    "kicker": "AFTER ANY FIX",
+    "title": "Print the channel test",
+    "body": "It shows every channel on its own. You see at once if the problem was one color or all of them."
+   },
+   {
+    "type": "tip",
+    "kicker": "IN ZOROPRINT",
+    "title": "Where the checks live",
+    "body": "Maintenance → Nozzle check prints the pattern on film. Bidirectional and Head gap (bidi) are in the Printer tab."
+   },
+   {
+    "type": "cta",
+    "big": "Find the line in *10 minutes*",
+    "line": "Nozzle check, channel test and bidirectional control in one RIP."
+   }
+  ],
+  "caption": "Fine lines across your DTF print? It looks like one problem. It has six causes.\n\nCheck in this order: clogged nozzles (70% of banding), bidirectional timing, too few passes, media feed, ink starvation, then the file itself. Print a channel test after any fix to see if it was one color or all of them.\n\nFull guide → zoroprint.com/guides/dtf-banding-lines-fix\n\n#dtf #dtfprinting #banding #dtfprinter #epson #printshop",
+  "tiktok_title": "Lines in your DTF prints? Check these 6 causes in order",
+  "sources": [
+   "guides-more.ts:47 description — six causes, 'checked in that order it takes ten minutes'",
+   "guides-more.ts:48 intro — wrong order wastes film",
+   "guides-more.ts:49 steps — 'clogged nozzles are 70 % of banding'",
+   "guides-more.ts:52 cause 1 — nozzle check on film (Maintenance → Nozzle check), gap = light line every pass, 1–2 cleanings, white needs most care",
+   "guides-more.ts:54 cause 2 — bidirectional off in Printer tab, Head gap (bidi) 1–3",
+   "guides-more.ts:56 cause 3 — 720×720 fewer passes; 1440×720 Medium sweet spot; High 1440×1440 hides banding, slower",
+   "guides-more.ts:58 cause 4 media feed; :60 cause 5 ink starvation; :62 cause 6 the file at 200 %",
+   "guides-more.ts:63 tip — channel test after any fix, shows every channel separately"
+  ]
+ },
+ {
+  "id": "05-cost-per-transfer",
+  "series": "COST PER TRANSFER",
+  "guide": "https://zoroprint.com/guides/dtf-cost-per-transfer",
+  "slides": [
+   {
+    "type": "cover",
+    "kicker": "DTF BUSINESS",
+    "title": "What one DTF transfer *really* costs",
+    "sub": "Four numbers and a calculator. Then the two costs most shops never count."
+   },
+   {
+    "type": "list",
+    "title": "The four numbers (per A4)",
+    "items": [
+     {
+      "t": "Color ink",
+      "d": "About $0.15–0.25 per ml. A full A4 at typical coverage uses 0.6–1.2 ml."
+     },
+     {
+      "t": "White ink",
+      "d": "$0.20–0.35 per ml, 1.5–3 ml per full A4. Usually your largest ink line."
+     },
+     {
+      "t": "Film",
+      "d": "$0.30–0.60 per A4 sheet, or $0.06–0.10 per A4 cut from a roll."
+     },
+     {
+      "t": "Powder",
+      "d": "$0.05–0.15 per A4 at normal coverage."
+     }
+    ]
+   },
+   {
+    "type": "stat",
+    "kicker": "WORKED EXAMPLE: A4, 70%",
+    "big": "$1.30",
+    "label": "Ink, film and powder for one A4 sheet",
+    "note": "Color $0.18 + white $0.62 + film $0.40 + powder $0.10. Six 8 cm logos: $0.22 each."
+   },
+   {
+    "type": "stat",
+    "kicker": "THE NUMBER NOBODY COUNTS",
+    "big": "15–25%",
+    "label": "of film and ink never becomes a sold transfer",
+    "note": "Nozzle checks, purge strips, misfeeds, reprints. Add waste to the cost, not to the profit."
+   },
+   {
+    "type": "list",
+    "title": "Time: the other hidden cost",
+    "items": [
+     {
+      "t": "3–5 minutes per A4",
+      "d": "Print time at 1440 × 720, plus curing."
+     },
+     {
+      "t": "At $25 an hour",
+      "d": "That is $1.50–2 per sheet. More than the ink."
+     },
+     {
+      "t": "The only lever",
+      "d": "Nest more designs per sheet. Gang sheets bring that number down."
+     }
+    ]
+   },
+   {
+    "type": "compare",
+    "title": "Nesting is the *margin*",
+    "left": {
+     "label": "In a column",
+     "items": [
+      "12 designs stacked one by one",
+      "1 m of film used"
+     ]
+    },
+    "right": {
+     "label": "Auto-nested",
+     "items": [
+      "Same 12 designs, with rotation",
+      "65–75 cm of film",
+      "25–35% saved, pure margin"
+     ]
+    }
+   },
+   {
+    "type": "tip",
+    "kicker": "IN ZOROPRINT",
+    "title": "Price from your numbers, not ours",
+    "body": "Enter your real ink, film and powder prices once in the Costs tab. Each job then shows its estimated ink and cost."
+   },
+   {
+    "type": "cta",
+    "big": "Know your cost per transfer",
+    "line": "Ink and cost per job, from your own prices."
+   }
+  ],
+  "caption": "What does one DTF transfer cost you? Start from your numbers, not the shop next door.\n\nA4 example at 70% coverage: color $0.18, white $0.62, film $0.40, powder $0.10 = $1.30, or $0.22 per logo with six nested. Then add 15–25% waste and your time. Nesting is where the margin is.\n\nFull guide → zoroprint.com/guides/dtf-cost-per-transfer\n\n#dtf #dtfprinting #dtfbusiness #gangsheet #smallbusiness #printshop",
+  "tiktok_title": "What one DTF transfer really costs (worked example)",
+  "sources": [
+   "guides-more.ts:171 intro — 'four numbers and a calculator'",
+   "guides-more.ts:175 four numbers — color $0.15–0.25/ml, 0.6–1.2 ml/A4; white $0.20–0.35/ml, 1.5–3 ml, largest ink line; film $0.30–0.60/A4 or $0.06–0.10 per A4 equivalent; powder $0.05–0.15",
+   "guides-more.ts:177 worked example — 0.9 ml × $0.20 = $0.18, 2.2 ml × $0.28 = $0.62, film $0.40, powder $0.10, total $1.30, six 8 cm logos $0.22 each",
+   "guides-more.ts:179 waste 15–25 %, 'add it to the cost, not to the profit'",
+   "guides-more.ts:181 time — A4 at 1440×720 takes 3–5 min plus curing; $25/h → $1.50–2 per sheet, more than ink; nesting the only way down",
+   "guides.ts:176 (gang-sheet-pricing) — 12 designs in a column 1 m; auto-nested with rotation 65–75 cm; 25–35 % pure margin",
+   "guides-more.ts:182 tip — Costs tab shows estimated ink and cost per job; set your real prices once",
+   "docs/business/PRETURI.md:73 — Solo ($8/month) includes costs (cost per job, ink); Costs tab gated to Solo+ (apps/desktop/src/renderer/app.js:65)"
+  ]
+ },
+ {
+  "id": "06-dull-colors",
+  "series": "DULL DTF COLORS",
+  "guide": "https://zoroprint.com/guides/dull-washed-out-dtf-colors",
+  "slides": [
+   {
+    "type": "cover",
+    "kicker": "DTF COLOR",
+    "title": "Dull, washed-out DTF colors? *Check in order*",
+    "sub": "Seven causes cover most of it. The first ones cost nothing to check."
+   },
+   {
+    "type": "tip",
+    "kicker": "START HERE",
+    "title": "One swatch that splits the causes",
+    "body": "Solid C, M, Y, K, a gray ramp, a skin tone. Press on a black and a white shirt. Dull on both: the color layer. Dull only on black: the white."
+   },
+   {
+    "type": "list",
+    "title": "Causes 1–2: color conversion",
+    "items": [
+     {
+      "t": "1. Converted twice",
+      "d": "Photoshop converts, then the RIP converts again. Keep sRGB. Convert once."
+     },
+     {
+      "t": "2. Wrong profile",
+      "d": "A profile made for another print mode gives blue grays and greenish browns."
+     }
+    ]
+   },
+   {
+    "type": "list",
+    "title": "Causes 3–4: the ink",
+    "items": [
+     {
+      "t": "3. Ink limits too low",
+      "d": "Film looks dry and pale? Raise per-channel limits in 10% steps."
+     },
+     {
+      "t": "4. A weak or wrong channel",
+      "d": "A dead yellow turns black purple. Run the channel test and a nozzle check."
+     }
+    ]
+   },
+   {
+    "type": "list",
+    "title": "Causes 5–6: white and black",
+    "items": [
+     {
+      "t": "5. White too thin",
+      "d": "Dull only on dark shirts? Use 100% white density and 10% highlight white."
+     },
+     {
+      "t": "6. Black generation too high",
+      "d": "Darks flat and grayish? Lower GCR from 60% to 40–50%."
+     }
+    ]
+   },
+   {
+    "type": "list",
+    "title": "Cause 7: the finish and the screen",
+    "items": [
+     {
+      "t": "A screen glows, film reflects",
+      "d": "Neon greens and electric blues are outside what CMYK ink can print."
+     },
+     {
+      "t": "The second press changes it",
+      "d": "Parchment gives a matte finish. A Teflon sheet leaves a slight sheen."
+     }
+    ]
+   },
+   {
+    "type": "tip",
+    "kicker": "NOT A RIP PROBLEM",
+    "title": "Logo turns pink overnight on polyester?",
+    "body": "That is dye migration from the fabric. No color setting fixes it. See the polyester guide: lower heat, dense white base."
+   },
+   {
+    "type": "cta",
+    "big": "Convert color *once*",
+    "line": "ZoroPrint: one conversion, per-channel limits, a white layer you tune."
+   }
+  ],
+  "caption": "Colors fine on screen, flat on the shirt? It is the most common DTF complaint.\n\nCheck in order: double conversion, the wrong profile, ink limits too low, a weak channel, thin white, too much black generation, then the finish. Start with one swatch pressed on a black and a white shirt. Change one setting at a time.\n\nFull guide → zoroprint.com/guides/dull-washed-out-dtf-colors\n\n#dtf #dtfprinting #colormanagement #dtftransfers #printshop",
+  "tiktok_title": "Dull DTF colors? Check these 7 causes in order",
+  "sources": [
+   "guides-more.ts:355 intro — most common complaint; seven causes; first ones cost nothing",
+   "guides-more.ts:359 swatch test — C/M/Y/K, grey ramp, skin tone; dull on both = colour layer, only on black = white",
+   "guides-more.ts:361 cause 1 double conversion — keep sRGB, let RIP convert once",
+   "guides-more.ts:363 cause 2 profile — blue greys and greenish browns",
+   "guides-more.ts:365 cause 3 — dry and pale film, raise per-channel limits in 10 % steps",
+   "guides-more.ts:367 cause 4 — dead yellow turns black purple; channel test + nozzle check",
+   "guides-more.ts:369 cause 5 — dark shirts: white density 100 %, highlight white 10 %",
+   "guides-more.ts:371 cause 6 — lower GCR from 60 % to 40–50 %",
+   "guides-more.ts:373 cause 7 — screen glows/ink reflects; neon greens, electric blues outside CMYK; parchment matte, Teflon sheen",
+   "guides-more.ts:375 quick reference — pink/blue/grey next day on polyester = dye migration, not a RIP problem",
+   "guides-more.ts:377 — 'ZoroPrint converts colour once, in the RIP, with ink limits per channel and a white layer you can tune'"
+  ]
+ },
+ {
+  "id": "07-white-ink-care",
+  "series": "WHITE INK CARE",
+  "guide": "https://zoroprint.com/guides/white-ink-care-epson",
+  "slides": [
+   {
+    "type": "cover",
+    "kicker": "PRINTER CARE",
+    "title": "Keep your white ink *alive*",
+    "sub": "Converted Epsons fail from standing still, not from printing. Daily, weekly, monthly."
+   },
+   {
+    "type": "stat",
+    "kicker": "THE RULE",
+    "big": "2–3 days",
+    "label": "Longest idle time without a short white print",
+    "note": "White ink is titanium dioxide in suspension. Left alone, it settles, thickens and dries in the nozzles."
+   },
+   {
+    "type": "steps",
+    "title": "Every day (5 minutes)",
+    "items": [
+     {
+      "t": "Rock the white gently",
+      "d": "Tanks or cartridges about 30 s. No hard shaking: it makes bubbles."
+     },
+     {
+      "t": "Print a purge strip first",
+      "d": "Fresh ink through every channel. Problems show before a customer job does."
+     },
+     {
+      "t": "Clean only if you see gaps",
+      "d": "Chained cleanings waste ink and pull air into the lines."
+     },
+     {
+      "t": "Swab cap and wiper at close",
+      "d": "Cleaning fluid on a foam swab: the cap lip and both sides of the wiper."
+     }
+    ]
+   },
+   {
+    "type": "list",
+    "title": "Every week",
+    "items": [
+     {
+      "t": "Deep-clean the capping station",
+      "d": "Dried white on the cap seal is the top cause of 'it was fine yesterday'."
+     },
+     {
+      "t": "Wipe the wiper blade",
+      "d": "A gummy wiper drags dried ink across the nozzle plate."
+     },
+     {
+      "t": "Look at the white tubes",
+      "d": "A clear band at the top means settling. Rock the tank, run a strip."
+     },
+     {
+      "t": "Keep tanks above one third",
+      "d": "Low ink lets air in. Air is much harder to remove than a clog."
+     }
+    ]
+   },
+   {
+    "type": "list",
+    "title": "Every month",
+    "items": [
+     {
+      "t": "White weak, nozzles clean?",
+      "d": "Flush the white lines with cleaning fluid and refill."
+     },
+     {
+      "t": "Check the dampers",
+      "d": "Air bubbles or discolored filters? Replace white dampers every 1–3 months."
+     },
+     {
+      "t": "Empty the waste tank",
+      "d": "A full waste pad stops the printer without warning."
+     }
+    ]
+   },
+   {
+    "type": "compare",
+    "title": "Going away for a week?",
+    "left": {
+     "label": "Don't",
+     "items": [
+      "Leave white in the head 10 days",
+      "Cut the power to the printer"
+     ]
+    },
+    "right": {
+     "label": "Do",
+     "items": [
+      "Print a strip every 2–3 days",
+      "Or flush white, leave cleaner in lines",
+      "Keep power on for timer cleaning"
+     ]
+    }
+   },
+   {
+    "type": "tip",
+    "kicker": "IN ZOROPRINT",
+    "title": "Let the RIP run the daily strip",
+    "body": "Maintenance → Add purge strip as the first job. 'Keep white ink moving while idle' prints a small white strip now and then, with film loaded."
+   },
+   {
+    "type": "cta",
+    "big": "White that prints *every morning*",
+    "line": "Purge strip, nozzle check and idle keep-alive built into the RIP."
+   }
+  ],
+  "caption": "Your printer \"suddenly stopped printing white\"? It skipped the routine.\n\nWhite DTF ink settles, thickens and dries when it sits. Rock the white daily, print a purge strip first, clean only when you see gaps, and never leave it idle more than 2–3 days. Keep the room at 45–60% humidity: dry air causes most winter clogs.\n\nFull guide → zoroprint.com/guides/white-ink-care-epson\n\n#dtf #dtfprinting #whiteink #epson #printermaintenance #dtfprinter",
+  "tiktok_title": "Keep DTF white ink alive: daily, weekly, monthly",
+  "sources": [
+   "guides.ts:137 (white-ink-care) intro — titanium dioxide in suspension; settles, thickens, dries; 'suddenly stopped printing white'",
+   "guides.ts:138 steps — never idle more than 2–3 days without a short white print",
+   "guides.ts:141 daily — tanks rocked ~30 s, no hard shaking (bubbles)",
+   "guides.ts:143 idle days — ZoroPrint Add purge strip every 2–3 days",
+   "guides.ts:146 tip — 45–60 % humidity; dry air causes most winter clogs (caption only)",
+   "guides-care.ts:11 (maintenance) intro — 'do not fail from printing; they fail from standing still'",
+   "guides-care.ts:15 daily — purge strip first (Maintenance → Add purge strip); clean only if gaps, repeated cleanings pull air; swab cap lip and wiper at end of day",
+   "guides-care.ts:17 weekly — capping station deep clean, dried white on cap seal = 'it was fine yesterday'; wiper; clear band in tubes; tanks above one third",
+   "guides-care.ts:19 monthly — flush white if density drops with clean nozzle check; dampers 1–3 months; waste pad stops printer",
+   "guides-care.ts:21-22 going away — strip every 2–3 days or flush and leave lines filled with cleaner; 10 days in summer = new head; keep power on for automatic timer cleaning",
+   "apps/desktop/src/renderer/index.html:438 + i18n.js:59 — 'Keep white ink moving while idle': small white strip now and then, only with film loaded"
+  ]
+ },
+ {
+  "id": "08-which-epsons",
+  "series": "CONVERTIBLE EPSONS",
+  "guide": "https://zoroprint.com/guides/which-epson-printers-can-be-converted-to-dtf",
+  "slides": [
+   {
+    "type": "cover",
+    "kicker": "BEFORE YOU BUY",
+    "title": "Which Epsons can you *convert* to DTF?",
+    "sub": "Where the white goes on each model, and how sure anyone is that it works."
+   },
+   {
+    "type": "list",
+    "title": "What makes one easy to convert",
+    "items": [
+     {
+      "t": "Two spare channels",
+      "d": "DTF color needs only 4 inks. Photo Epsons have 2 more for white."
+     },
+     {
+      "t": "Two whites, double the flow",
+      "d": "Color and white can print in one pass."
+     },
+     {
+      "t": "A RIP that sends raw commands",
+      "d": "Not the Epson driver. The RIP must drive the head directly."
+     }
+    ]
+   },
+   {
+    "type": "list",
+    "title": "Supported (beta)",
+    "items": [
+     {
+      "t": "L805 · L800 (A4)",
+      "d": "White in the cyan + magenta tanks. The L800 is USB only."
+     },
+     {
+      "t": "L1800 (A3+)",
+      "d": "Same layout as the L805, wider carriage, roll film. The most converted."
+     },
+     {
+      "t": "R1390 · R1400 · Artisan 1430",
+      "d": "Same head family as the L1800. White in light cyan + light magenta."
+     },
+     {
+      "t": "ET-8550 = L8180 (A3+)",
+      "d": "One printer, two names. White in photo black + gray. Validated Sept 2026."
+     }
+    ]
+   },
+   {
+    "type": "compare",
+    "title": "What the labels mean",
+    "left": {
+     "label": "Experimental",
+     "items": [
+      "Head geometry deduced from docs",
+      "Not yet confirmed on hardware",
+      "Expect to adjust a setting or two"
+     ]
+    },
+    "right": {
+     "label": "Beta",
+     "items": [
+      "Drives the printer",
+      "Being validated",
+      "ET-8550 / L8180 measured on hardware"
+     ]
+    }
+   },
+   {
+    "type": "list",
+    "title": "Experimental",
+    "items": [
+     {
+      "t": "L8050 (A4) · L18050 (A3+)",
+      "d": "Newer 180-nozzle successors of the L805 and the L1800."
+     },
+     {
+      "t": "ET-8500 · L8160 (A4)",
+      "d": "The A4 siblings of the ET-8550 and the L8180."
+     },
+     {
+      "t": "XP-15000 (A3+)",
+      "d": "White in the red + gray tanks. Head offsets still being confirmed."
+     },
+     {
+      "t": "SC-P700 · SC-P900",
+      "d": "Premium 10-channel heads, white in the light channels."
+     }
+    ]
+   },
+   {
+    "type": "list",
+    "title": "Not supported (yet)",
+    "items": [
+     {
+      "t": "XP600, i3200, i1600 roll printers",
+      "d": "Hoson, Senyang and BYHX boards use their own protocol, not ESC/P2."
+     },
+     {
+      "t": "On our list, no date yet",
+      "d": "SureColor P400, P600, P800, R1800–R3000, ET-18100 and ET-5800."
+     }
+    ]
+   },
+   {
+    "type": "list",
+    "title": "How to *choose*",
+    "items": [
+     {
+      "t": "Smallest, cheapest to run",
+      "d": "An A4 L805. Logos, patches and small gang sheets."
+     },
+     {
+      "t": "Gang sheets and roll film",
+      "d": "An A3+ L1800. Best known, so kits and help are easy to find."
+     },
+     {
+      "t": "Newer head, already validated",
+      "d": "The ET-8550 or L8180."
+     },
+     {
+      "t": "Buy new or barely used",
+      "d": "A worn head that sat with dried dye ink never prints reliable white."
+     }
+    ]
+   },
+   {
+    "type": "cta",
+    "big": "Check your model *first*",
+    "line": "Run the channel test on film once. It confirms your tank layout."
+   }
+  ],
+  "caption": "Converting an Epson to DTF? Check where the white goes and whether your RIP can drive it.\n\nThe L805, L1800 and ET-8550 / L8180 are the safe picks. The L8050, L18050, XP-15000 and SC-P700/P900 are experimental: head geometry not yet confirmed on hardware. And buy the printer new or barely used.\n\nFull guide → zoroprint.com/guides/which-epson-printers-can-be-converted-to-dtf\n\n#dtf #dtfprinting #epson #dtfconversion #l1800 #et8550",
+  "tiktok_title": "Which Epson printers can you convert to DTF?",
+  "sources": [
+   "printers.ts:3-4 — beta = drives the printer, being validated; experimental = head geometry deduced, not yet confirmed on hardware",
+   "printers.ts:20-34 — per-model status, format, white tanks",
+   "printers.ts:20 L805 note — 'Run the channel test on film once … confirms your tank layout'",
+   "printers.ts:28,30 ET-8550/L8180 — beta, validated on real hardware Sept 2026, same machine",
+   "guides-more.ts:418 — DTF needs 4 colour inks, 2 more channels for white, double white flow, one pass, RIP sending raw commands",
+   "guides-more.ts:420 supported list — L805/L800 (USB only), L1800 most converted, R1390/R1400/Artisan 1430, ET-8550/L8180",
+   "guides-more.ts:422-423 experimental — 'expect to run the channel test and to adjust a setting or two'; L8050/L18050, ET-8500/L8160, XP-15000, SC-P700/P900",
+   "guides-more.ts:425-426 not supported — P400/P600/P800, R1800–R3000, ET-18100, ET-5800, no date; XP600/i3200/i1600 boards (Hoson, Senyang, BYHX) not ESC/P2",
+   "guides-more.ts:428-429 how to choose; buy new or barely used"
+  ]
+ },
+ {
+  "id": "09-polyester-dye-migration",
+  "series": "DTF ON POLYESTER",
+  "guide": "https://zoroprint.com/guides/dtf-on-polyester-dye-migration",
+  "slides": [
+   {
+    "type": "cover",
+    "kicker": "DTF ON POLYESTER",
+    "title": "White logo turned *pink* overnight?",
+    "sub": "That is dye migration. Four things stop it: heat, time, powder and the white layer."
+   },
+   {
+    "type": "stat",
+    "kicker": "WHY IT HAPPENS",
+    "big": "≈160 °C",
+    "label": "Where polyester dyes turn back into gas",
+    "note": "Press at the usual 160 °C and that gas moves into your white ink. Perfect off the press, pink by morning."
+   },
+   {
+    "type": "stat",
+    "kicker": "LOWER THE HEAT",
+    "big": "140–150 °C",
+    "label": "For 10–12 s, light pressure, on polyester",
+    "note": "Every 10 °C below 160 halves the migration. Do not add time to compensate: time is exposure."
+   },
+   {
+    "type": "list",
+    "title": "Powder and film",
+    "items": [
+     {
+      "t": "Low-temperature TPU powder",
+      "d": "Melts at about 100–110 °C, so you can press cooler."
+     },
+     {
+      "t": "Anti-migration film",
+      "d": "Adds a thin barrier layer. Worth it on red, black and neon polyester."
+     },
+     {
+      "t": "Cure fully in the oven",
+      "d": "The press should only re-melt the powder, not cure it."
+     }
+    ]
+   },
+   {
+    "type": "list",
+    "title": "The white layer is your *blocker*",
+    "items": [
+     {
+      "t": "White density 100%",
+      "d": "Even on light shirts. A dense base stops dye reaching the color layer."
+     },
+     {
+      "t": "Highlight white at 10%",
+      "d": "Keep it there on polyester."
+     },
+     {
+      "t": "No 'less white under dark'",
+      "d": "On polyester, never thin the white under dark colors."
+     }
+    ]
+   },
+   {
+    "type": "compare",
+    "title": "Scorch marks and shine",
+    "left": {
+     "label": "The problem",
+     "items": [
+      "A shiny rectangle around the design",
+      "Fibers flattened by heat and pressure"
+     ]
+    },
+    "right": {
+     "label": "The fix",
+     "items": [
+      "Lower temperature, light pressure",
+      "Teflon sheet, parchment > platen",
+      "Pressing pillow under textured weaves"
+     ]
+    }
+   },
+   {
+    "type": "tip",
+    "kicker": "TEST IT RIGHT",
+    "title": "Press, wait 24 hours, then look",
+    "body": "Test on the sleeve. Dye migration is slow. A test you judge straight off the press tells you nothing."
+   },
+   {
+    "type": "cta",
+    "big": "A white base that *blocks*",
+    "line": "White density and highlight white, tuned in ZoroPrint."
+   }
+  ],
+  "caption": "White logo perfect off the press, pink by morning? That is dye migration.\n\nPolyester dyes turn back into gas around 160 °C. Press at 140–150 °C for 10–12 s, use low-temperature powder and anti-migration film, and run white density at 100%. Then test on a sleeve and wait 24 hours before you judge.\n\nFull guide → zoroprint.com/guides/dtf-on-polyester-dye-migration\n\n#dtf #dtfprinting #polyester #heatpress #sportswear #dtftransfers",
+  "tiktok_title": "DTF on polyester: why white turns pink (and the fix)",
+  "sources": [
+   "guides-care.ts:80 description — white logo turns pink on red polyester a day after pressing; four settings: temperature, time, powder, blocker layer",
+   "guides-care.ts:81 intro — sublimation dyes turn back into gas around 160 °C; logo turns pink, blue or grey by next morning",
+   "guides-care.ts:82,85 — 140–150 °C, 10–12 s, light pressure; every 10 °C below 160 halves migration; don't compensate with time",
+   "guides-care.ts:87 — low-temp TPU ≈100–110 °C; anti-migration film for red, black, neon; cure fully in oven",
+   "guides-care.ts:89 — white density 100 % even on light shirts, highlight white 10 %, never 'less white under dark colours'",
+   "guides-care.ts:91 — scorch rectangle; lower temp, light pressure, Teflon sheet, parchment larger than platen; pressing pillow for textured sportswear",
+   "guides-care.ts:92 tip — test on the sleeve, wait 24 hours",
+   "apps/desktop/src/renderer/index.html:303 + i18n.js:41 — white density and Highlight white are RIP settings"
+  ]
+ }
+]
