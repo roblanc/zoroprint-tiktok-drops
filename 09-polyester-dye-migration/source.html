@@ -1,0 +1,57 @@
+<!doctype html><html><head><meta charset="utf-8"><style>@font-face{font-family:"Schibsted";src:url(a/schibsted-grotesk.woff2) format("woff2");font-weight:400 900}
+@font-face{font-family:"Plex";src:url(a/ibm-plex-mono-latin-500-normal.woff2) format("woff2");font-weight:500}
+@font-face{font-family:"Plex";src:url(a/ibm-plex-mono-latin-600-normal.woff2) format("woff2");font-weight:600}
+:root{--ink:#0E1220;--ink2:#161B2E;--line:#2A3150;--paper:#F7F8FA;--mute:#9AA3BF;--soft:#C9CFE2;--or:#FF7A1A;--red:#FF5A5F;--grn:#3DDC97}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#000}
+.slide{width:1080px;height:1350px;background:var(--ink);color:var(--paper);font-family:Schibsted,sans-serif;position:relative;overflow:hidden;
+  background-image:radial-gradient(circle at 1px 1px,#1E2440 1.4px,transparent 1.6px);background-size:36px 36px}
+.safe{position:absolute;inset:92px 72px 92px 72px;display:flex;flex-direction:column}
+.top{display:flex;justify-content:space-between;align-items:center;font:600 22px Plex;letter-spacing:.14em;color:var(--mute);text-transform:uppercase;padding-bottom:22px;border-bottom:2px solid var(--line)}
+.top b{color:var(--or);font-weight:600}
+.top .l{display:flex;gap:14px;align-items:center}
+.top img{width:40px;height:40px}
+.body{flex:1;display:flex;flex-direction:column;justify-content:center;gap:34px;padding:30px 0;min-height:0}
+.foot{display:flex;justify-content:space-between;font:500 21px Plex;letter-spacing:.1em;color:var(--mute);text-transform:uppercase;padding-top:20px;border-top:2px solid var(--line)}
+.foot .sw{color:var(--paper)}
+.or{color:var(--or)}
+h1{font-weight:880;font-size:112px;line-height:.93;letter-spacing:-.04em}
+h2{font-weight:830;font-size:68px;line-height:1;letter-spacing:-.03em}
+.kick{font:600 24px Plex;letter-spacing:.14em;text-transform:uppercase;color:var(--or)}
+.sub{font-weight:500;font-size:38px;line-height:1.25;color:var(--soft)}
+.guide{align-self:flex-start;font:600 22px Plex;letter-spacing:.06em;color:var(--paper);border:2px solid var(--line);border-radius:12px;padding:12px 16px}
+.cover .body{justify-content:flex-end;padding-bottom:40px}
+.items{display:flex;flex-direction:column;gap:16px}
+.it{display:grid;grid-template-columns:52px 1fr;gap:18px;align-items:start;background:var(--ink2);border:2px solid var(--line);border-radius:20px;padding:24px 28px}
+.it .dot{width:16px;height:16px;border-radius:50%;background:var(--or);margin:16px 0 0 16px}
+.it .num{width:48px;height:48px;border-radius:12px;background:var(--or);color:var(--ink);font-weight:850;font-size:30px;display:grid;place-items:center}
+.it .t{font-weight:780;font-size:38px;line-height:1.08;letter-spacing:-.01em}
+.it .d{font-weight:500;font-size:28px;line-height:1.3;color:var(--soft);margin-top:8px}
+.items.n4 .it{padding:20px 26px}
+.items.n4 .it .t{font-size:34px}
+.items.n4 .it .d{font-size:26px}
+.stat .big{font-weight:900;font-size:200px;line-height:.85;letter-spacing:-.05em;color:var(--or)}
+.stat .label{font-weight:800;font-size:56px;line-height:1.04;letter-spacing:-.025em}
+.stat .note{font-weight:500;font-size:34px;line-height:1.3;color:var(--soft);border-left:6px solid var(--or);padding-left:24px}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.col{border-radius:22px;padding:28px;border:2px solid var(--line);background:var(--ink2);min-height:420px}
+.col.bad .cl{color:var(--red)}
+.col.good{border-color:var(--or);background:rgba(255,122,26,.08)}
+.col.good .cl{color:var(--grn)}
+.cl{font:600 26px Plex;letter-spacing:.06em;text-transform:uppercase;margin-bottom:20px}
+.col ul{list-style:none;display:flex;flex-direction:column;gap:18px}
+.col li{font-weight:650;font-size:33px;line-height:1.18}
+.tipcard{background:var(--ink2);border:2px solid var(--or);border-radius:26px;padding:44px;display:flex;flex-direction:column;gap:26px}
+.tipcard .tb{font-weight:500;font-size:38px;line-height:1.3;color:var(--soft)}
+.end{background:var(--or);background-image:none;color:var(--ink)}
+.end .top,.end .foot{color:rgba(14,18,32,.7);border-color:rgba(14,18,32,.25)}
+.end .top b,.end .foot .sw{color:var(--ink)}
+.end .or{color:var(--paper)}
+.endbig{font-weight:900;font-size:108px;line-height:.92;letter-spacing:-.045em}
+.endline{font-weight:650;font-size:34px;line-height:1.25}
+.offer{display:flex;flex-direction:column;gap:12px}
+.offer div{background:var(--ink);color:var(--paper);border-radius:18px;padding:20px 28px;font-weight:780;font-size:38px;display:flex;justify-content:space-between;align-items:center}
+.offer div span{font:600 21px Plex;color:var(--or);letter-spacing:.08em}
+.url{font-weight:900;font-size:68px;letter-spacing:-.03em}
+.gl{font:600 21px Plex;letter-spacing:.04em}
+</style></head><body><section class="slide cover" id="s1"><div class="safe"><div class="top"><div class="l"><img src="a/cat-mark-400.webp">ZoroPrint · <b>DTF ON POLYESTER</b></div><div>01 / 08</div></div><div class="body"><div class="kick">DTF ON POLYESTER</div><h1>White logo turned <span class="or">pink</span> overnight?</h1><div class="sub">That is dye migration. Four things stop it: heat, time, powder and the white layer.</div><div class="guide">Guide · zoroprint.com/guides</div></div><div class="foot"><div>@zoroprintdtfsoftware</div><div class="sw">Swipe →</div></div></div></section><section class="slide stat" id="s2"><div class="safe"><div class="top"><div class="l"><img src="a/cat-mark-400.webp">ZoroPrint · <b>DTF ON POLYESTER</b></div><div>02 / 08</div></div><div class="body"><div class="kick">WHY IT HAPPENS</div><div class="big">≈160 °C</div><div class="label">Where polyester dyes turn back into gas</div><div class="note">Press at the usual 160 °C and that gas moves into your white ink. Perfect off the press, pink by morning.</div></div><div class="foot"><div>@zoroprintdtfsoftware</div><div class="sw">Swipe →</div></div></div></section><section class="slide stat" id="s3"><div class="safe"><div class="top"><div class="l"><img src="a/cat-mark-400.webp">ZoroPrint · <b>DTF ON POLYESTER</b></div><div>03 / 08</div></div><div class="body"><div class="kick">LOWER THE HEAT</div><div class="big">140–150 °C</div><div class="label">For 10–12 s, light pressure, on polyester</div><div class="note">Every 10 °C below 160 halves the migration. Do not add time to compensate: time is exposure.</div></div><div class="foot"><div>@zoroprintdtfsoftware</div><div class="sw">Swipe →</div></div></div></section><section class="slide" id="s4"><div class="safe"><div class="top"><div class="l"><img src="a/cat-mark-400.webp">ZoroPrint · <b>DTF ON POLYESTER</b></div><div>04 / 08</div></div><div class="body"><h2>Powder and film</h2><div class="items n3"><div class="it"><div class=dot></div><div><div class="t">Low-temperature TPU powder</div><div class="d">Melts at about 100–110 °C, so you can press cooler.</div></div></div><div class="it"><div class=dot></div><div><div class="t">Anti-migration film</div><div class="d">Adds a thin barrier layer. Worth it on red, black and neon polyester.</div></div></div><div class="it"><div class=dot></div><div><div class="t">Cure fully in the oven</div><div class="d">The press should only re-melt the powder, not cure it.</div></div></div></div></div><div class="foot"><div>@zoroprintdtfsoftware</div><div class="sw">Swipe →</div></div></div></section><section class="slide" id="s5"><div class="safe"><div class="top"><div class="l"><img src="a/cat-mark-400.webp">ZoroPrint · <b>DTF ON POLYESTER</b></div><div>05 / 08</div></div><div class="body"><h2>The white layer is your <span class="or">blocker</span></h2><div class="items n3"><div class="it"><div class=dot></div><div><div class="t">White density 100%</div><div class="d">Even on light shirts. A dense base stops dye reaching the color layer.</div></div></div><div class="it"><div class=dot></div><div><div class="t">Highlight white at 10%</div><div class="d">Keep it there on polyester.</div></div></div><div class="it"><div class=dot></div><div><div class="t">No &#x27;less white under dark&#x27;</div><div class="d">On polyester, never thin the white under dark colors.</div></div></div></div></div><div class="foot"><div>@zoroprintdtfsoftware</div><div class="sw">Swipe →</div></div></div></section><section class="slide" id="s6"><div class="safe"><div class="top"><div class="l"><img src="a/cat-mark-400.webp">ZoroPrint · <b>DTF ON POLYESTER</b></div><div>06 / 08</div></div><div class="body"><h2>Scorch marks and shine</h2><div class="cmp"><div class="col bad"><div class="cl">✕ The problem</div><ul><li>A shiny rectangle around the design</li><li>Fibers flattened by heat and pressure</li></ul></div><div class="col good"><div class="cl">✓ The fix</div><ul><li>Lower temperature, light pressure</li><li>Teflon sheet, parchment &gt; platen</li><li>Pressing pillow under textured weaves</li></ul></div></div></div><div class="foot"><div>@zoroprintdtfsoftware</div><div class="sw">Swipe →</div></div></div></section><section class="slide" id="s7"><div class="safe"><div class="top"><div class="l"><img src="a/cat-mark-400.webp">ZoroPrint · <b>DTF ON POLYESTER</b></div><div>07 / 08</div></div><div class="body"><div class="kick">TEST IT RIGHT</div><div class="tipcard"><h2>Press, wait 24 hours, then look</h2><div class="tb">Test on the sleeve. Dye migration is slow. A test you judge straight off the press tells you nothing.</div></div></div><div class="foot"><div>@zoroprintdtfsoftware</div><div class="sw">Swipe →</div></div></div></section><section class="slide end" id="s8"><div class="safe"><div class="top"><div class="l"><img src="a/cat-mark-400.webp">ZoroPrint · <b>DTF ON POLYESTER</b></div><div>08 / 08</div></div><div class="body"><div class="endbig">A white base that <span class="or">blocks</span></div><div class="endline">White density and highlight white, tuned in ZoroPrint.</div><div class="offer"><div>Start free <span>NO CARD</span></div><div>Unlimited · $8 / month <span>SOLO</span></div><div>macOS · Windows · Linux <span>SAME APP</span></div></div><div class="url">zoroprint.com</div><div class="gl">Full guide: zoroprint.com/guides/dtf-on-polyester-dye-migration</div></div><div class="foot"><div>@zoroprintdtfsoftware</div><div class="sw">Save this</div></div></div></section></body></html>
