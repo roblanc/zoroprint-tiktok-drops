@@ -1,0 +1,186 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>DTF on a Mac</title>
+<style>
+@font-face{font-family:"Schibsted";src:url(a/schibsted-grotesk.woff2) format("woff2");font-weight:400 900}
+@font-face{font-family:"Plex";src:url(a/ibm-plex-mono-latin-500-normal.woff2) format("woff2");font-weight:500}
+@font-face{font-family:"Plex";src:url(a/ibm-plex-mono-latin-600-normal.woff2) format("woff2");font-weight:600}
+:root{--ink:#0E1220;--ink2:#161B2E;--line:#2A3150;--paper:#F7F8FA;--mute:#9AA3BF;--or:#FF7A1A;--red:#FF5A5F;--grn:#3DDC97;--h:1350px;--pt:92px;--pb:92px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#000}
+.slide{width:1080px;height:var(--h);background:var(--ink);color:var(--paper);font-family:Schibsted,sans-serif;position:relative;overflow:hidden;
+  background-image:radial-gradient(circle at 1px 1px,#1E2440 1.4px,transparent 1.6px);background-size:36px 36px}
+.safe{position:absolute;inset:var(--pt) 72px var(--pb) 72px;display:flex;flex-direction:column}
+.top{display:flex;justify-content:space-between;align-items:center;font:600 22px Plex;letter-spacing:.14em;color:var(--mute);text-transform:uppercase;padding-bottom:22px;border-bottom:2px solid var(--line)}
+.top b{color:var(--or);font-weight:600}
+.top .l{display:flex;gap:14px;align-items:center}
+.top img{width:40px;height:40px}
+.body{flex:1;display:flex;flex-direction:column;justify-content:center;gap:34px;padding:30px 0}
+.foot{display:flex;justify-content:space-between;font:500 21px Plex;letter-spacing:.1em;color:var(--mute);text-transform:uppercase;padding-top:20px;border-top:2px solid var(--line)}
+.foot .sw{color:var(--paper)}
+h1{font-weight:850;font-size:104px;line-height:.94;letter-spacing:-.035em}
+h2{font-weight:820;font-size:76px;line-height:.98;letter-spacing:-.03em}
+.or{color:var(--or)}
+.sub{font-weight:500;font-size:36px;line-height:1.25;color:#C9CFE2;max-width:900px}
+.sub b{color:var(--paper);font-weight:750}
+.kick{font:600 24px Plex;letter-spacing:.14em;text-transform:uppercase;color:var(--or)}
+/* mac-ish window */
+.win{background:#1B2033;border:2px solid #343C5C;border-radius:22px;box-shadow:0 30px 80px rgba(0,0,0,.5);overflow:hidden}
+.bar{height:46px;display:flex;align-items:center;gap:10px;padding:0 18px;background:#22283E;border-bottom:2px solid #2E3552}
+.dot{width:16px;height:16px;border-radius:50%}
+.d1{background:#FF5F57}.d2{background:#FEBC2E}.d3{background:#28C840}
+.bar span{font:500 18px Plex;color:var(--mute);margin-left:12px}
+/* alert */
+.alert{width:640px;align-self:center;background:#262C42;border:2px solid #3A4262;border-radius:30px;padding:44px 44px 34px;text-align:center;box-shadow:0 40px 90px rgba(0,0,0,.55)}
+.alert .ic{width:96px;height:96px;margin:0 auto 22px;border-radius:22px;background:#2F3650;display:grid;place-items:center;font-size:60px}
+.alert h3{font-weight:750;font-size:33px;line-height:1.2}
+.alert p{font-weight:500;font-size:25px;color:var(--mute);margin-top:14px;line-height:1.35}
+.alert .btn{margin-top:30px;background:#3A4262;border-radius:14px;padding:16px;font-weight:700;font-size:26px}
+/* table */
+.rows{display:flex;flex-direction:column;gap:14px}
+.row{display:grid;grid-template-columns:1fr auto;align-items:center;background:var(--ink2);border:2px solid var(--line);border-radius:20px;padding:24px 30px}
+.row .n{font-weight:780;font-size:40px}
+.row .m{font:500 22px Plex;color:var(--mute);margin-top:6px}
+.tag{font:600 22px Plex;letter-spacing:.06em;padding:10px 16px;border-radius:12px;white-space:nowrap}
+.no{background:rgba(255,90,95,.12);color:var(--red);border:2px solid rgba(255,90,95,.4)}
+.yes{background:rgba(61,220,151,.12);color:var(--grn);border:2px solid rgba(61,220,151,.45)}
+.row.us{border-color:var(--or);background:rgba(255,122,26,.08)}
+/* cards */
+.card{background:var(--ink2);border:2px solid var(--line);border-radius:22px;padding:28px 32px;display:grid;grid-template-columns:70px 1fr;gap:4px 22px;align-items:start}
+.card .x{grid-row:span 2;width:62px;height:62px;border-radius:16px;display:grid;place-items:center;font-weight:800;font-size:34px;background:rgba(255,90,95,.14);color:var(--red)}
+.card .t{font-weight:780;font-size:38px;line-height:1.1}
+.card .d{font-weight:500;font-size:28px;line-height:1.3;color:#C9CFE2}
+/* laptop */
+.lap{position:relative;width:936px;align-self:center}
+.lap img.bz{width:100%;display:block;position:relative;z-index:2}
+.lap img.sc{position:absolute;z-index:1;left:calc(165/1600*100%);top:calc(51/966*100%);width:calc(1270/1600*100%);height:calc(798/966*100%);object-fit:cover;object-position:top left}
+.chips{display:flex;flex-wrap:wrap;gap:14px}
+.chip{font:600 24px Plex;padding:14px 20px;border-radius:14px;background:var(--ink2);border:2px solid var(--line)}
+.chip.o{border-color:var(--or);color:var(--or)}
+/* features */
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.f{background:var(--ink2);border:2px solid var(--line);border-radius:22px;padding:30px;min-height:250px;display:flex;flex-direction:column;gap:14px}
+.f .k{font:600 21px Plex;letter-spacing:.12em;color:var(--or);text-transform:uppercase}
+.f .t{font-weight:800;font-size:40px;line-height:1.02;letter-spacing:-.02em}
+.f .d{font-weight:500;font-size:26px;line-height:1.3;color:#C9CFE2}
+/* printers */
+.pr{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.p{background:#E9ECF3;border-radius:22px;padding:22px 18px 18px;display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--ink)}
+.p .im{height:150px;display:flex;align-items:center}
+.p img{max-width:250px;max-height:150px}
+.p .n{font-weight:800;font-size:34px}
+.p .m{font:500 19px Plex;color:#5A6280;text-align:center}
+/* end card */
+.end{background:var(--or);background-image:none;color:var(--ink)}
+.end .top,.end .foot{color:rgba(14,18,32,.7);border-color:rgba(14,18,32,.25)}
+.end .top b{color:var(--ink)}
+.end .foot .sw{color:var(--ink)}
+.big{font-weight:880;font-size:132px;line-height:.9;letter-spacing:-.045em}
+.offer{display:flex;flex-direction:column;gap:14px}
+.offer div{background:var(--ink);color:var(--paper);border-radius:20px;padding:24px 30px;font-weight:780;font-size:42px;display:flex;justify-content:space-between;align-items:center}
+.offer div span{font:600 22px Plex;color:var(--or);letter-spacing:.08em}
+.url{font-weight:880;font-size:72px;letter-spacing:-.03em}
+.share{font-weight:650;font-size:32px}
+</style></head><body>
+
+<!-- 1 HOOK -->
+<section class="slide" id="s1"><div class="safe">
+  <div class="top"><div class="l"><img src="a/cat-mark-400.webp">ZoroPrint · <b>DTF on a Mac</b></div><div>01 / 07</div></div>
+  <div class="body">
+    <h1>Bought a DTF printer.<br><span class="or">Own a Mac.</span></h1>
+    <div class="alert">
+      <div class="ic">⚠️</div>
+      <h3>“AcroRIP_Setup.exe” can’t be opened on this Mac.</h3>
+      <p>Your printer seller only sent a Windows RIP and a USB dongle.</p>
+      <div class="btn">OK</div>
+    </div>
+    <div class="sub">There’s a way out that isn’t “buy a PC”. <b>Swipe.</b></div>
+  </div>
+  <div class="foot"><div>@zoroprintdtfsoftware</div><div class="sw">Swipe →</div></div>
+</div></section>
+
+<!-- 2 THE LIST -->
+<section class="slide" id="s2"><div class="safe">
+  <div class="top"><div class="l"><img src="a/cat-mark-400.webp">ZoroPrint · <b>DTF on a Mac</b></div><div>02 / 07</div></div>
+  <div class="body">
+    <h2>Every RIP the forums<br>send you to:</h2>
+    <div class="rows">
+      <div class="row"><div><div class="n">AcroRIP</div><div class="m">USB dongle by post</div></div><div class="tag no">✕ WINDOWS ONLY</div></div>
+      <div class="row"><div><div class="n">BlackBox RIP</div><div class="m">Converted Epsons</div></div><div class="tag no">✕ WINDOWS ONLY</div></div>
+      <div class="row"><div><div class="n">Maintop</div><div class="m">Bundled with many printers</div></div><div class="tag no">✕ WINDOWS ONLY</div></div>
+      <div class="row us"><div><div class="n">ZoroPrint</div><div class="m">Converted Epsons · no dongle</div></div><div class="tag yes">✓ MAC · WIN · LINUX</div></div>
+    </div>
+    <div class="sub">So the advice is always the same: <b>“just get a Windows PC.”</b></div>
+  </div>
+  <div class="foot"><div>@zoroprintdtfsoftware</div><div class="sw">Swipe →</div></div>
+</div></section>
+
+<!-- 3 WORKAROUNDS -->
+<section class="slide" id="s3"><div class="safe">
+  <div class="top"><div class="l"><img src="a/cat-mark-400.webp">ZoroPrint · <b>DTF on a Mac</b></div><div>03 / 07</div></div>
+  <div class="body">
+    <h2>The workarounds<br><span class="or">you’ve been told.</span></h2>
+    <div class="card"><div class="x">✕</div><div class="t">Parallels on an M-chip Mac</div><div class="d">AcroRIP and Fiery say it doesn’t work on Apple Silicon.</div></div>
+    <div class="card"><div class="x">✕</div><div class="t">Boot Camp</div><div class="d">Intel Macs only. Gone since M1.</div></div>
+    <div class="card"><div class="x">✕</div><div class="t">A second PC next to the printer</div><div class="d">It works. Now you babysit two computers, a dongle and a USB cable.</div></div>
+  </div>
+  <div class="foot"><div>@zoroprintdtfsoftware</div><div class="sw">Swipe →</div></div>
+</div></section>
+
+<!-- 4 THE ANSWER -->
+<section class="slide" id="s4"><div class="safe">
+  <div class="top"><div class="l"><img src="a/cat-mark-400.webp">ZoroPrint · <b>DTF on a Mac</b></div><div>04 / 07</div></div>
+  <div class="body">
+    <h2>Or run the RIP<br><span class="or">on the Mac.</span></h2>
+    <div class="lap"><img class="sc" src="a/sheet.png"><img class="bz" src="a/macbook-pro-14-1600.webp"></div>
+    <div class="chips"><div class="chip o">Native on Apple Silicon</div><div class="chip">USB straight to the Epson</div><div class="chip">No driver</div><div class="chip">No dongle</div></div>
+  </div>
+  <div class="foot"><div>Real ZoroPrint Studio</div><div class="sw">Swipe →</div></div>
+</div></section>
+
+<!-- 5 FEATURES -->
+<section class="slide" id="s5"><div class="safe">
+  <div class="top"><div class="l"><img src="a/cat-mark-400.webp">ZoroPrint · <b>DTF on a Mac</b></div><div>05 / 07</div></div>
+  <div class="body">
+    <h2>A full DTF RIP.<br><span class="or">Not a “Mac lite”.</span></h2>
+    <div class="feat">
+      <div class="f"><div class="k">01 · White</div><div class="t">Underbase built for you</div><div class="d">From your PNG’s transparency. No layer by hand.</div></div>
+      <div class="f"><div class="k">02 · Colour</div><div class="t">ICC + ink limits</div><div class="d">Per channel, so blacks stay black.</div></div>
+      <div class="f"><div class="k">03 · Sheet</div><div class="t">Auto nest</div><div class="d">Your designs packed onto the film. Less waste.</div></div>
+      <div class="f"><div class="k">04 · Setup</div><div class="t">Channel test</div><div class="d">Numbered blocks show which tank carries the white.</div></div>
+    </div>
+  </div>
+  <div class="foot"><div>@zoroprintdtfsoftware</div><div class="sw">Swipe →</div></div>
+</div></section>
+
+<!-- 6 PRINTERS -->
+<section class="slide" id="s6"><div class="safe">
+  <div class="top"><div class="l"><img src="a/cat-mark-400.webp">ZoroPrint · <b>DTF on a Mac</b></div><div>06 / 07</div></div>
+  <div class="body">
+    <h2>Made for the Epsons<br><span class="or">people convert.</span></h2>
+    <div class="pr">
+      <div class="p"><div class="im"><img src="a/printer-epson-l1800.webp"></div><div class="n">L1800</div><div class="m">A3+ · white in C + M</div></div>
+      <div class="p"><div class="im"><img src="a/printer-epson-l805.webp"></div><div class="n">L805</div><div class="m">A4 · where Zoro was born</div></div>
+      <div class="p"><div class="im"><img src="a/printer-epson-et-8550.webp"></div><div class="n">ET-8550</div><div class="m">A3+ · L8180 in EU</div></div>
+    </div>
+    <div class="chips"><div class="chip">R1390 / R1400</div><div class="chip">Artisan 1430</div><div class="chip">L800</div><div class="chip">+ more in testing</div></div>
+    <div class="sub">Full list, with what’s confirmed on hardware: <b>zoroprint.com/printers</b></div>
+  </div>
+  <div class="foot"><div>@zoroprintdtfsoftware</div><div class="sw">Swipe →</div></div>
+</div></section>
+
+<!-- 7 END -->
+<section class="slide end" id="s7"><div class="safe">
+  <div class="top"><div class="l"><img src="a/cat-mark-400.webp">ZoroPrint · <b>DTF on a Mac</b></div><div>07 / 07</div></div>
+  <div class="body">
+    <div class="big">Keep the Mac.<br>Print tonight.</div>
+    <div class="offer">
+      <div>Start free <span>NO CARD</span></div>
+      <div>Unlimited · $8 / month <span>WHEN YOU GROW</span></div>
+      <div>macOS · Windows · Linux <span>SAME APP</span></div>
+    </div>
+    <div class="url">zoroprint.com</div>
+    <div class="share">Send this to the Mac person in your shop. 🐈‍⬛</div>
+  </div>
+  <div class="foot"><div>@zoroprintdtfsoftware</div><div class="sw">Save this</div></div>
+</div></section>
+</body></html>
