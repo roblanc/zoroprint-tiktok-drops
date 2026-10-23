@@ -109,10 +109,10 @@ VIDEOS = [
     "vo": "Check your total ink limit. It's the most ink all channels together can lay on one spot."},
    {"img": "ink200", "title": "200% = *two layers*", "cam": [(2150, 860, 720, 220)], "ring": (2186, 925, 650, 100),
     "say": "Two hundred percent means two layers.", "vo": "200% means two layers."},
-   {"img": "ink200", "title": "Above it, the film *floods*", "cam": [ART, (1000, 380, 700, 520)],
-    "vo": "Above it, the film floods, the powder clumps, and the transfer cracks."},
+   {"img": "ink200", "title": "No limit? The film *floods*", "cam": [ART, (1000, 380, 700, 520)],
+    "vo": "Without a limit, the film floods, the powder clumps, and the transfer cracks."},
   ],
-  "caption": "Transfers cracking after the first wash? Check your total ink limit: the most ink all channels together may lay on one spot. 200% means two layers. Above it the film floods, the powder clumps and the transfer cracks. ZoroPrint shows it in Colour → Total ink limit.\n\nStart free → zoroprint.com\n\n#dtf #dtfprinting #dtftransfers #dtfprinter #printshop #smallbusiness",
+  "caption": "Transfers cracking after the first wash? Check your total ink limit: the most ink all channels together may lay on one spot. 200% means two layers. Without a limit, the film floods, the powder clumps and the transfer cracks. Find it in ZoroPrint under Colour → Total ink limit.\n\nStart free → zoroprint.com\n\n#dtf #dtfprinting #dtftransfers #dtfprinter #printshop #smallbusiness",
   "tt_title": "Why DTF transfers crack"},
 ]
 

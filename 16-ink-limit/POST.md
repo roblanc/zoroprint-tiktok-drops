@@ -5,7 +5,7 @@ Made in HyperFrames from real ZoroPrint Studio captures (zoroprint.com/app/studi
 
 ## Caption
 
-Transfers cracking after the first wash? Check your total ink limit: the most ink all channels together may lay on one spot. 200% means two layers. Above it the film floods, the powder clumps and the transfer cracks. ZoroPrint shows it in Colour → Total ink limit.
+Transfers cracking after the first wash? Check your total ink limit: the most ink all channels together may lay on one spot. 200% means two layers. Without a limit, the film floods, the powder clumps and the transfer cracks. Find it in ZoroPrint under Colour → Total ink limit.
 
 Start free → zoroprint.com
 
@@ -16,7 +16,7 @@ Start free → zoroprint.com
 - Transfers cracking after the first wash?
 - Check your total ink limit. It's the most ink all channels together can lay on one spot.
 - 200% means two layers.
-- Above it, the film floods, the powder clumps, and the transfer cracks.
+- Without a limit, the film floods, the powder clumps, and the transfer cracks.
 - ZoroPrint. Start free at zoroprint.com.
 
 ## Sources
